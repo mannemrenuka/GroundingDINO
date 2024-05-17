@@ -33,18 +33,17 @@ def install_torch():
         import torch
     except ImportError:
         print(["python", "-m", "pip", "install", "torch" ])
-        sleep(1)
         p = subprocess.Popen([sys.executable, "-m", "pip", "install", "torch", "--verbose" ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True )
+        stdout, stderr = p.communicate()
         p_status = p.wait()
-        sleep(1)
+        print(stdout, stderr)
         print(["python", "-m", "pip", "install", "torch" ], "status", p_status)
         subprocess.check_call([sys.executable, "-m", "pip", "install", "torch" ])
 
 print([sys.executable, "-m", "pip", "list"])
-sleep(1)
 p = subprocess.Popen([sys.executable, "-m", "pip", "list"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True )
 p_status = p.wait()
-sleep(1)
+print(stdout, stderr)
 print([sys.executable, "-m", "pip", "list"],"status", p_status)
 # Call the function to ensure torch is installed
 install_torch()
