@@ -34,7 +34,7 @@ def install_torch():
     except ImportError:
         print(["python", "-m", "pip", "install", "torch" ])
         sleep(1)
-        p = subprocess.Popen([sys.executable, "-m", "pip", "install", "torch" ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True )
+        p = subprocess.Popen([sys.executable, "-m", "pip", "install", "torch", "--verbose" ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True )
         p_status = p.wait()
         sleep(1)
         print(["python", "-m", "pip", "install", "torch" ], "status", p_status)
