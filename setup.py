@@ -42,6 +42,7 @@ def install_torch():
 
 print([sys.executable, "-m", "pip", "list"])
 p = subprocess.Popen([sys.executable, "-m", "pip", "list"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True )
+stdout, stderr = p.communicate()
 p_status = p.wait()
 print(stdout, stderr)
 print([sys.executable, "-m", "pip", "list"],"status", p_status)
