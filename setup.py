@@ -34,7 +34,7 @@ def install_torch():
         subprocess.check_call([sys.executable, "-m", "pip", "install", "torch"])
 
 # Call the function to ensure torch is installed
-install_torch()
+# install_torch()
 
 import torch
 from setuptools import find_packages, setup
